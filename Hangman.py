@@ -1,6 +1,6 @@
 import random
 from random_word import list_of_random_words
-word = random.choice(list_of_random_words)
+my_word = random.choice(list_of_random_words)
 
 def hangman(word):
     hidden_word = []
@@ -39,4 +39,5 @@ def hangman(word):
             elif count == attempt:
                 print(f"YOU LOST! The word was {word}.")
 
-hangman(word)
+
+hangman(my_word)
