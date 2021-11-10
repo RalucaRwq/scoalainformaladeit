@@ -44,19 +44,15 @@ while game_not_end:
                 if not game_not_end:
                     display_board()
                     break
-                if board[4] == "-":  # check if the user chose position 5
-                    board[4] = "O"
-                    last_move = "O"
-                    display_board()
-                elif board[0] == "-" or board[2] == "-" or board[6] == "-" or board[8] == "-":
-                    good_positions = [0, 2, 6, 8, 1, 3, 5, 7]
-                    for i in good_positions:
-                        if board[i] == "-":
-                            board[i] = "O"
-                            last_move = "O"
-                            display_board()
-                            check_win()
-                            break
+
+                good_positions = [4, 0, 2, 6, 8, 1, 3, 5, 7]
+                for i in good_positions:
+                    if board[i] == "-":
+                        board[i] = "O"
+                        last_move = "O"
+                        display_board()
+                        check_win()
+                        break
             else:
                 print("This position is already occupied.")
                 display_board()
