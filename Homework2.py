@@ -1,13 +1,23 @@
-def my_function(param1, param2, param3, *args):
-    my_sum = []
-    if isinstance(param1, int):
-        my_sum.append(param1)
-    if isinstance(param2, int):
-        my_sum.append(param2)
-    if isinstance(param3, int):
-        my_sum.append(param2)
-    my_sum = sum(my_sum)
-    print(my_sum)
-    return 0
+# exercise 1
+def sum_function(*args, **kwargs):
+    my_sum = 0
+    for x in args:
+        if type(x) == int:
+            my_sum = my_sum + x
+    return my_sum
 
-my_function()
+
+print(sum_function(1, 5, -3, "abc", [12, 56, "cad"]))
+print(sum_function())
+print(sum_function(2, 4, "abc", param_1=2))
+
+# exercise 3
+def my_input(user):
+    if type(user) == int:
+        return user
+    else:
+        return 0
+
+
+print(my_input(10.5))
+print(my_input(10))
