@@ -49,17 +49,8 @@ while game_not_end:
                     last_move = "O"
                     display_board()
                 elif board[0] == "-" or board[2] == "-" or board[6] == "-" or board[8] == "-":
-                    good_positions = [0, 2, 6, 8]
+                    good_positions = [0, 2, 6, 8, 1, 3, 5, 7]
                     for i in good_positions:
-                        if board[i] == "-":
-                            board[i] = "O"
-                            last_move = "O"
-                            display_board()
-                            check_win()
-                            break
-                else:
-                    last_positions = [1, 3, 5, 7]
-                    for i in last_positions:
                         if board[i] == "-":
                             board[i] = "O"
                             last_move = "O"
