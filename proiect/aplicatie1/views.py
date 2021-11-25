@@ -7,7 +7,7 @@ from django.shortcuts import render
 # IndexView -> informare cu privire la formular
 # ListView -> Ofera mai multe info de tip lista din DB
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, ListView
 from aplicatie1.models import Location
 
 class CreateLocationView(CreateView):
@@ -17,4 +17,17 @@ class CreateLocationView(CreateView):
     template_name = 'aplicatie1/location_form.html'
 
     def get_success_url(self):
-        return reverse('aplicatie1:adaugare')
+        return reverse('aplicatie1:listare')
+
+class UpdateLocationView(UpdateView):
+    model = Location # modelul in care salvam datele
+    # fields = '__all__'
+    fields = ['city', 'country']
+    template_name = 'aplicatie1/location_form.html'
+
+    def get_success_url(self):
+        return reverse('aplicatie1:listare')
+
+class ListLocationView(ListView):
+    model = Location
+    template_name = 'aplicatie1/location_index.html'
