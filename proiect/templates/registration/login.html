@@ -13,6 +13,7 @@
 
         <button type="submit" onclick="{% url 'login' %}">Login</button>
         {{ form.non_field_errors }}
+        <a href="{% url 'password_reset' %} "> Vrei sa iti resetezi parola? </a>
 
     </form>
     </div>
