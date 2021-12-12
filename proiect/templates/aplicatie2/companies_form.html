@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for item in form %}
+            {{ item.label }} {{ item }}<br>
+        {{ item.errors }}
+        {% endfor %}
+    <button type="submit">Save</button>
+    </form>
+{% endblock %}
