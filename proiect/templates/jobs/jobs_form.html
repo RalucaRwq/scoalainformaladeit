@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+body {
+  background-color: hsla(89, 43%, 51%, 0.3);
+  }
+</style>
+<form method="post"> <!-- daca vrem sa adaugam in baza de date, metoda folosita pe formular este de post. post e pentru adaugare -->
+    {% csrf_token %}
+    {% for field in form %}
+    <br>
+   <b> {{ field.label }} </b> <br> {{ field }} <br>
+    {% endfor %}
+    <br>
+    <button type="submit"> Save </button>
+</form>
+
+{% endblock %}
