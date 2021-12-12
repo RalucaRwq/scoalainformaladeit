@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
     <style>
+
+    body {
+  background-color: hsla(89, 43%, 51%, 0.3);
+  }
         .add_button {
             width: 10%;
-            background-color: yellow;
-            color: blue;
+            background-color: blue;
+            color: white;
             text-decoration: none;
             border: 1px solid green;
         }
@@ -23,25 +27,31 @@
         }
     </style>
     <br><br><br>
-    <a class="add_button" href="{% url 'aplicatie1:adaugare' %}">Add new location</a>
+<a class="add_button" href="{% url 'jobs:add' %}">Add new job</a>
     <table>
         <thead>
         <tr>
-            <th>Index</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Action</th>
+            <th>INDEX</th>
+            <th>NAME</th>
+            <th>URL</th>
+            <th>DESCRIPTION</th>
+            <th>CUSTOMER ID</th>
+            <th>ACTIVE</th>
         </tr>
         </thead>
         <tbody>
-        {% for item in location_list %}
+        {% for item in job_list %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ item.city|upper }}</td>
-                <td>{{ item.country }}</td>
-                <td><a class="update_button" href="{% url 'aplicatie1:modificare' item.id %}">Update location</a></td>
+                <td>{{ item.name|upper }}</td>
+                <td>{{ item.url }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.customer }}</td>
+                <td>{{ item.active }}</td>
+                 <td><a class="update_button" href="{% url 'jobs:update' item.id %}">Update job</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
 {% endblock %}
