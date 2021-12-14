@@ -49,6 +49,7 @@
                 <td>{{ item.customer }}</td>
                 <td>{{ item.active }}</td>
                  <td><a class="update_button" href="{% url 'jobs:update' item.id %}">Update job</a></td>
+                <td><a class="update_button" href="{% url 'jobs:remove' item.id %}">Delete job</a></td>
             </tr>
         {% endfor %}
         </tbody>

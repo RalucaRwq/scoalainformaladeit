@@ -40,6 +40,7 @@
                 <td>{{ item.city|upper }}</td>
                 <td>{{ item.country }}</td>
                 <td><a class="update_button" href="{% url 'aplicatie1:modificare' item.id %}">Update location</a></td>
+                <td><a class="update_button" href="{% url 'aplicatie1:remove' item.id %}">Delete location</a></td>
             </tr>
         {% endfor %}
         </tbody>

@@ -60,3 +60,4 @@ def delete_location(request, pk):
     if request.user.is_authenticated:
         Location.objects.filter(id=pk).update(active=0)
     return redirect('aplicatie1:listare')
+
